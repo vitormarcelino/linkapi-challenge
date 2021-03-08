@@ -1,28 +1,30 @@
-# Adonis API application
+# Linkapi Challenge
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+## Architecture 01 (Active)
+![alt text](https://github.com/vitormarcelino/linkapi-challenge/blob/main/architecture1.png?raw=true)
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+To run integration, run:
 
-## Setup
-
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick --api-only
+```
+adonis sync:pipedrive:deal
 ```
 
-or manually clone the repo and then run `npm install`.
 
+## Architecture 02 (Passive)
+![alt text](https://github.com/vitormarcelino/linkapi-challenge/blob/main/architecture2.png?raw=true)
 
-### Migrations
+To run integration, run:
 
-Run the following command to run startup migrations.
+```
+adonis consume:pipedrive:update
+```
 
-```js
-adonis migration:run
+## Configuration
+Copy .env.example file to .env and configure the variables
+
+## Run Aplication
+To run the application, run:
+
+```
+pm2 start
 ```

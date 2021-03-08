@@ -33,6 +33,8 @@ module.exports = {
 
   blingApiKey: Env.get('BLING_APIKEY', ''),
 
+  rabbitMqConnectionString: Env.get('RABBITMQ_CONNECTION_STRING', ''),
+
   http: {
     /*
     |--------------------------------------------------------------------------

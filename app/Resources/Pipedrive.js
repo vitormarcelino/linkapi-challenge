@@ -3,9 +3,12 @@ const Config = use('Config')
 
 class Pipedrive {
 
+  constructor() {
+    lib.Configuration.apiToken = Config.get('app.pipedriveToken')
+  }
+
   async getWonDeals() {
     return new Promise(async (resolve) => {
-      lib.Configuration.apiToken = Config.get('app.pipedriveToken')
       let input = []
       input['status'] = 'won'
       input['limit'] = 25
@@ -61,6 +64,20 @@ class Pipedrive {
         resolve(products)
       })
     })
+  }
+
+  async getData(deal) {
+    let products = await this.getPipediveDealProducts(deal.id)
+    return {
+      pipedrive_id: deal.id,
+      title: deal.title,
+      value: deal.value,
+      won_time: deal.won_time,
+      customer: {
+        name: deal.person_name,
+      },
+      products
+    }
   }
 
 }

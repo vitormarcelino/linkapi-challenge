@@ -55,7 +55,8 @@ const aliases = {}
 |
 */
 const commands = [
-  'App/Commands/SyncPipedriveDeal'
+  'App/Commands/SyncPipedriveDeal',
+  'App/Commands/ConsumePipedriveUpdate'
 ]
 
 module.exports = { providers, aceProviders, aliases, commands }
